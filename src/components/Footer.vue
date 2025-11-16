@@ -1,8 +1,11 @@
-        <script setup>
+<script setup>
+import {ref} from 'vue'
+const year = ref("2025")
+year.value = "2014"
 </script>
         <template>
             <footer>
-                Created by <span>Professor Pickle</span> &copy; 2025
+                Created by <span>Professor Pickle</span> &copy; {{year}}
             </footer>
         </template>
 <style scoped>
