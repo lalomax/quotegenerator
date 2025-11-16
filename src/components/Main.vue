@@ -3,6 +3,7 @@ import { ref } from 'vue'
 const quote = ref('First, solve the problem. Then, write the code.')
 const author = ref('John Johnson')
 const href = ref("https://en.wikipedia.org/wiki/Undocumented_feature")
+const isBtnDisabled = ref(true)
 quote.value = 'First, solve the problem. Then, write the code using parts called sprints in scrum teams.'
 author.value = 'Orlando Flores'
 </script>
@@ -10,9 +11,12 @@ author.value = 'Orlando Flores'
     <main>
         <section>
             <p>{{ quote }}</p>
-            <a v-bind:href="href"><span>{{ author }}</span></a>
+            <a :href="href"><span>{{ author }}</span></a>
         </section>
-        <button>Another!</button>
+        <section id="buttons">
+            <button :disabled="isBtnDisabled">Another!</button>
+            <button :disabled="isBtnDisabled">Share</button>
+        </section>
     </main>
 </template>
 <style scoped>
@@ -61,6 +65,11 @@ span::before {
     content: "- "
 }
 
+  #buttons {
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
 button {
     background: #406473;
     color: white;
@@ -76,6 +85,11 @@ button {
 
 button:hover {
     transform: scale(1.05);
+}
+  button:disabled {
+  background:grey;
+  cursor: not-allowed;
+  opacity:0.5;
 }
 
 /**********/
