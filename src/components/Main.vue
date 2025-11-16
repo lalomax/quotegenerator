@@ -11,7 +11,7 @@ author.value = 'Orlando Flores'
     <main>
         <section>
             <p>{{ quote }}</p>
-            <a :href="href"><span>{{ author }}</span></a>
+            <a :href><span>{{ author }}</span></a>
         </section>
         <section id="buttons">
             <button :disabled="isBtnDisabled">Another!</button>
