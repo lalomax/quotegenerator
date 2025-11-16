@@ -1,15 +1,16 @@
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 const quote = ref('First, solve the problem. Then, write the code.')
 const author = ref('John Johnson')
+const href = ref("https://en.wikipedia.org/wiki/Undocumented_feature")
 quote.value = 'First, solve the problem. Then, write the code using parts called sprints in scrum teams.'
 author.value = 'Orlando Flores'
 </script>
 <template>
     <main>
         <section>
-            <p>{{quote }}</p>
-            <span>{{author}}</span>
+            <p>{{ quote }}</p>
+            <a v-bind:href="href"><span>{{ author }}</span></a>
         </section>
         <button>Another!</button>
     </main>
@@ -18,28 +19,28 @@ author.value = 'Orlando Flores'
 /* MAIN CSS */
 main {
     background: #CCD6D9;
-    max-width:90%;
-    border-radius:0 15px 0 15px;
-    padding:35px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
+    max-width: 90%;
+    border-radius: 0 15px 0 15px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 section {
     display: flex;
-    width:100%;
-    flex-direction:column;
-    gap:10px;
-    margin-bottom:25px;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
 }
 
 p {
-    font-weight:bold;
+    font-weight: bold;
     font-style: italic;
-    font-size:2rem;
-    text-align:left;
+    font-size: 2rem;
+    text-align: left;
 }
 
 p::before {
@@ -50,8 +51,9 @@ p::after {
     content: '"'
 }
 
-span {
-    align-self:end;
+span,
+a {
+    align-self: end;
     color: #406473;
 }
 
@@ -60,19 +62,21 @@ span::before {
 }
 
 button {
-    background:#406473;
+    background: #406473;
     color: white;
-    padding:10px;
+    padding: 10px;
     border: 0;
-    font-size:1.2rem;
-    border-radius:0 5px 0 5px;
-    font-weight:bold;
-    margin-top:20px;
-    cursor:pointer;
+    font-size: 1.2rem;
+    border-radius: 0 5px 0 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
     transition: transform 0.2s;
 }
-button:hover{
+
+button:hover {
     transform: scale(1.05);
 }
+
 /**********/
 </style>
